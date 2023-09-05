@@ -33,11 +33,12 @@ class Superhero {
 }
 
 class Avengers extends Superhero {
+  #headquarters;
   constructor(name, alias, mission, enemies = []) {
     super(name, alias, "Avengers", "Marvel");
     this.mission = mission;
     this.enemies = enemies;
-    this._headquarters = "Avengers Tower, New York";
+    this.#headquarters = "Avengers Tower, New York";
   }
 
   // метод для співпраці з іншою командою
@@ -55,13 +56,13 @@ class Avengers extends Superhero {
   // метод для виклику підкріплення
   callForBackup() {
     console.log(
-      `${this.alias} is calling for backup at ${this._headquarters}.`
+      `${this.alias} is calling for backup at ${this.#headquarters}.`
     );
   }
 
   // метод для відображення головного штабу героїв
   showHeadquarters() {
-    console.log(` ${this.team}'s base is at ${this._headquarters}.`);
+    console.log(` ${this.team}'s base is at ${this.#headquarters}.`);
   }
 
   // метод для відображення списку ворогів
@@ -87,6 +88,7 @@ class Avengers extends Superhero {
 }
 
 class IronMan extends Avengers {
+  #AIAssistant;
   constructor(armorModel, suitColor, mission, enemies = []) {
     super("Tony Stark", "Iron Man", mission, enemies); // викликаємо конструктор батьківського класу
     this.armorModel = armorModel; // модель броні
@@ -109,22 +111,23 @@ class IronMan extends Avengers {
   // комунікація з Джарвісом
   communicateWithAI() {
     console.log(`${this.alias}: "Jarvis, report status!"`);
-    console.log(`${this._AIAssistant}: "All systems are functional, sir."`);
+    console.log(`${this.#AIAssistant}: "All systems are functional, sir."`);
   }
 }
 
 class Thor extends Avengers {
+  #isWorthy;
   constructor(weapon, mission, enemies = []) {
     super("Thor Odinson", "Thor", mission, enemies);
     this.weapon = weapon;
     this._homeRealm = "Asgard";
     this._fatherName = "Odin";
-    this._isWorthy = true; // чи вартий Тор Mjolnir
+    this.#isWorthy = true; // чи вартий Тор Mjolnir
   }
 
   // метод закликання блискавок
   summonLightning() {
-    if (this._isWorthy) {
+    if (this.#isWorthy) {
       console.log(
         `${this.alias} is summoning lightning with his ${this.weapon}.`
       );
@@ -160,10 +163,11 @@ class Thor extends Avengers {
 }
 
 class Rocket extends Superhero {
+  #species;
   constructor(gadget) {
     super("Rocket Raccoon", "Rocket", "Guardians of the Galaxy", "Marvel");
     this.gadget = gadget;
-    this._species = "Genetically enhanced raccoon";
+    this.#species = "Genetically enhanced raccoon";
     this._profession = "Mercenary & Engineer";
   }
 
@@ -181,7 +185,7 @@ class Rocket extends Superhero {
 
   // метод для відображення інформації про вид Rocket
   showSpeciesInfo() {
-    console.log(`${this.alias} is a ${this._species}.`);
+    console.log(`${this.alias} is a ${this.#species}.`);
   }
 
   // метод для відображення поточного гаджета Rocket
@@ -191,23 +195,24 @@ class Rocket extends Superhero {
 }
 
 class StarLord extends Superhero {
+  #musicPlaylist;
   constructor(weapon) {
     super("Peter Quill", "Star-Lord", "Guardians of the Galaxy", "Marvel");
     this.weapon = weapon;
     this._ship = "The Milano";
     this._parentage = "Half human, half celestial";
     this._motherName = "Meredith";
-    this._musicPlaylist = ["Awesome Mix Vol. 1", "Awesome Mix Vol. 2"]; // унікальний плейлист
+    this.#musicPlaylist = ["Awesome Mix Vol. 1", "Awesome Mix Vol. 2"]; // унікальний плейлист
   }
 
   // метод, щоб танцювати під музику
   dance() {
-    console.log(`${this.alias} is dancing to his ${this._musicPlaylist[0]}.`);
+    console.log(`${this.alias} is dancing to his ${this.#musicPlaylist[0]}.`);
   }
 
   // метод, щоб слухати музику
   listen() {
-    console.log(`${this.alias} is listening ${this._musicPlaylist[1]}.`);
+    console.log(`${this.alias} is listening ${this.#musicPlaylist[1]}.`);
   }
   // метод для отримання інформації про корабель
   showShipInfo() {
